@@ -11,14 +11,14 @@ Please read the [step-by-step implementation tutorial](https://www.ibm.com/devel
 Clone the project,
 
 ```sh
-$ git clone https://github.com/satwikkansal/python_blockchain_app.git
+$ git clone https://github.com/AndrewS097/python_blockchain_app
 ```
 
 Install the dependencies,
 
 ```sh
 $ cd python_blockchain_app
-$ pip install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
 Start a blockchain node server,
@@ -35,7 +35,7 @@ One instance of our blockchain node is now up and running at port 8000.
 Run the application on a different terminal session,
 
 ```sh
-$ python run_app.py
+$ python3 run_app.py
 ```
 
 The application should be up and running at [http://localhost:5000](http://localhost:5000).

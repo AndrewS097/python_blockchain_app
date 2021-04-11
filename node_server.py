@@ -1,10 +1,9 @@
 from hashlib import sha256
 import json
 import time
-
-from flask import Flask, request
+from flask import Flask, request, render_template, redirect, url_for, jsonify
 import requests
-
+import os
 
 class Block:
     def __init__(self, index, transactions, timestamp, previous_hash, nonce=0):
@@ -135,8 +134,7 @@ class Blockchain:
         return True
 
 
-app = Flask(__name__)
-
+app = Flask(__name__, template_folder=os.path.dirname(os.path.abspath(__file__))+'/app/templates')
 # the node's copy of blockchain
 blockchain = Blockchain()
 blockchain.create_genesis_block()
@@ -144,6 +142,47 @@ blockchain.create_genesis_block()
 # the address to other participating members of the network
 peers = set()
 
+#registration url
+@app.route('/register')
+def register  ():
+    return render_template('register.html')
+#registration method
+@app.route ('/register', methods=['POST'])
+def register_form ():
+    if request.method == 'POST':
+        file=open("credentials.txt", "a")
+        file.write(request.form['username'])
+        file.write(" ")
+        file.write (sha256(request.form['password'].encode()).hexdigest())
+        file.write("\n")
+        file.close()
+    return redirect('http://127.0.0.1:8000/login')
+#login url
+@app.route('/login')
+def login ():
+    return render_template('login.html')
+
+#login method
+@app.route ('/login', methods =['GET', 'POST'])
+def login_form():
+    error = None
+    if request.method == 'POST':
+        username= request.form['username']
+        file=open("userLoggedIn.txt", "w")
+        file.write(request.form['username'])
+        file.close()
+        password= sha256(request.form['password'].encode()).hexdigest()
+        for line in open("credentials.txt"):
+            if username+" "+password+"\n" == line:
+                return redirect('http://localhost:5000/home')
+
+        if username+" "+password+"\n" != line: 
+            error = 'Invalid Credentials. Please try again.'
+            return render_template('login.html', error=error)
+#load decrypt page
+@app.route ('/decrypt')
+def decrypt():
+    return render_template ('decrypt.html')
 
 # endpoint to submit a new transaction. This will be used by
 # our application to add new data (posts) to the blockchain
@@ -151,7 +190,6 @@ peers = set()
 def new_transaction():
     tx_data = request.get_json()
     required_fields = ["author", "content"]
-
     for field in required_fields:
         if not tx_data.get(field):
             return "Invalid transaction data", 404
@@ -159,9 +197,7 @@ def new_transaction():
     tx_data["timestamp"] = time.time()
 
     blockchain.add_new_transaction(tx_data)
-
     return "Success", 201
-
 
 # endpoint to return the node's copy of the chain.
 # Our application will be using this endpoint to query
@@ -324,4 +360,4 @@ def announce_new_block(block):
                       headers=headers)
 
 # Uncomment this line if you want to specify the port number in the code
-#app.run(debug=True, port=8000)
+#app.run(debug=True, port=8000, host=127.0.0.1)

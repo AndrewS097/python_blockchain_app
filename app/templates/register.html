@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+</head>
+<h1> Registration Page </h1>
+<body>
+  <form method="post">
+    Enter Your Username Here:<br>
+    <input type="text" name="username"><br>
+    Enter Your Password Here:<br>
+    <input type="text" name="password" id="password"><br>
+ <input type="checkbox" onclick="showPassword()"> Do Not Show Password<br>
+ <input type="submit" value="Register Account" name="submit">
+  </form>
+<script>
+function showPassword() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+</body>
+
+<a href="/login">login</a>
+</html>
