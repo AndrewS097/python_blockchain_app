@@ -11,7 +11,7 @@ Please read the [step-by-step implementation tutorial](https://www.ibm.com/devel
 Clone the project,
 
 ```sh
-$ git clone https://github.com/AndrewS097/python_blockchain_app
+$ git clone https://github.com/AndrewS097/python_blockchain_app.git
 ```
 
 Install the dependencies,
