@@ -44,10 +44,11 @@ def index1():
 #Decrypts  Passwords                           
 @app.route ('/decrypt_method', methods=['POST', 'GET'])
 def decrypt_method():
+    global passwords
+    passwordsfix = []
     for i in range(len(passwords)):
-        passwords[i]=decrypt(str(passwords[i]))
-        passwords[i]=str(passwords[i])
-        new_passwords=[x[2:-1] for x in passwords]
+        passwordsfix.append(str(decrypt(str(passwords[i]))))
+        new_passwords=[x[2:-1] for x in passwordsfix]
     return jsonify(Usernames=usernames,Decrypted_Passwords=new_passwords)  
 @app.route('/home')
 def index():
@@ -83,6 +84,8 @@ def submit_textarea():
     return redirect('/home')
 
 def credentialsArray(password, username):
+    global passwords
+    global usernames
     passwords.append(password)
     usernames.append(username)
     return "done"
