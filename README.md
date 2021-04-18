@@ -43,7 +43,7 @@ The application should be up and running at [http://localhost:5000](http://local
 Here are a few screenshots
 1. Login Process
 
-![image.jpg](https://github.com/AndrewS097/python_blockchain_app/raw/master/screenshots/Credentials.JPG)
+![image.jpg](https://github.com/AndrewS097/python_blockchain_app/raw/master/screenshots/Block%20Vault%20Page%20with%20Credentials.JPG)
 
 2. Registration Process 
 3. Posting some content
