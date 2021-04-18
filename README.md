@@ -41,18 +41,26 @@ $ python3 run_app.py
 The application should be up and running at [http://localhost:5000](http://localhost:5000).
 
 Here are a few screenshots
+1. Login Process
 
-1. Posting some content
+![image.JPG] (https://github.com/AndrewS097/python_blockchain_app/blob/0605ea6d3e8f8f48354b7898a6228fd973dd9d0e/screenshots/Block%20Vault%20Page%20with%20Credentials.JPG)
+
+2. Registration Process 
+3. Posting some content
 
 ![image.png](https://github.com/satwikkansal/python_blockchain_app/raw/master/screenshots/1.png)
 
-2. Requesting the node to mine
+4. Requesting the node to mine
 
 ![image.png](https://github.com/satwikkansal/python_blockchain_app/raw/master/screenshots/2.png)
 
-3. Resyncing with the chain for updated data
+5. Resyncing with the chain for updated data
 
 ![image.png](https://github.com/satwikkansal/python_blockchain_app/raw/master/screenshots/3.png)
+
+6. Decryption Process
+
+7. Post Decryption 
 
 To play around by spinning off multiple custom nodes, use the `register_with/` endpoint to register a new node. 
 
