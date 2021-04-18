@@ -59,15 +59,15 @@ Here are a few screenshots
 
 5. Resyncing with the chain for updated data
 
-![image.png](https://github.com/satwikkansal/AndrewS097/raw/master/screenshots/Block%20Vault%20Page%20with%20Credentials.JPG)
+![image.png](https://github.com/AndrewS097/python_blockchain_app/raw/master/screenshots/Block%20Vault%20Page%20with%20Credentials.JPG)
 
 6. Decryption Process
 
-![image.png](https://github.com/satwikkansal/AndrewS097/raw/master/screenshots/Decrypt_Page.JPG)
+![image.png](https://github.com/AndrewS097/python_blockchain_app/raw/master/screenshots/Decrypt_Page.JPG)
 
 7. Post Decryption 
 
-![image.png](https://github.com/satwikkansal/AndrewS097/raw/master/screenshots/Decrypted_Passwords.JPG)
+![image.png](https://github.com/AndrewS097/python_blockchain_app/raw/master/screenshots/Decrypted_Passwords.JPG)
 
 To play around by spinning off multiple custom nodes, use the `register_with/` endpoint to register a new node. 
 
